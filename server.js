@@ -13,7 +13,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
 //const {DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
 
 // Set up the server
-
 const app = express();
 const PORT = process.env.PORT || 2002;
 
