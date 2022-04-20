@@ -1,14 +1,14 @@
-
+// Dependencies
 const util = require ("util");
 const path = require("path"); 
 const fs = require("fs");
 const express = require("express");
 //const { parse } = require("path");
 
-//const notes = require("./db/bd.json");
+const notes = require("./db/bd.json");
 
-const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
+const readFileData = util.promisify(fs.readFile);
+const writeFileData = util.promisify(fs.writeFile);
 //const uuid = require ("uuid");
 //const {DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
 
@@ -16,30 +16,30 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const app = express();
 const PORT = process.env.PORT || 2002;
 
-// Middleware
+// Middleware that allows access to the public folder
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("./db/db.json"));
+app.use(express.static("/db/db.json"))
 
 // Setting routes for APIs
 // This gets the notes/saved and adds it in db.json | "GET" request
 app.get("/api/notes", function(req, res) {
-    readFileAsync("./db/db.json", "utf8").then(function(data) {
+    readFileData("/db/db.json", "utf8").then(function(data) {
         notes = [].concat(JSON.parse(data))
-        res.json(notes);
+        res.json(notes);    
     })
 });
 
 // Add new notes to db.json with the "POST" function
-app.post("./api/notes", function(req, res) {
+app.post("/api/notes", function(req, res) {
     const note = req.body;
-    readFileAsync("./db/db.json", "utf8").then(function(data) {
+    readFileData("/db/db.json", "utf8").then(function(data) {
         const notes = [].concat(JSON.parse(data));
         note.id = notes.length + 1
         notes.push(note);
         return notes
     }).then(function(notes) {
-      writeFileAsync("./db/db.json", JSON.stringify(notes))
+      writeFileData("/db/db.json", JSON.stringify(notes))
       res.json(note);  
     })
 });
@@ -47,9 +47,9 @@ app.post("./api/notes", function(req, res) {
 
 
 // Remove unwanted notes | "DELETE" request
-app.delete("./api/notes", function(req, res) {
+app.delete("/api/notes/:id", function(req, res) {
     const idToDelete = parseInt(req.params.id);
-    readFileAsync("./db/db.json", "utf8").then(function(data) {
+    readFileData("/db/db.json", "utf8").then(function(data) {
         const notes = [].concat(JSON.parse(data));
         const newNotesData = []
         for (let i = 0; i<notes.length; i++) {
@@ -59,7 +59,7 @@ app.delete("./api/notes", function(req, res) {
         }
         return newNotesData
     }).then(function(notes) {
-        writeFileAsync("./db/db.json", JSON.stringify(notes))
+        writeFileData("/db/db.json", JSON.stringify(notes))
         res.send('saved success!!!');
     })
 })
@@ -67,15 +67,15 @@ app.delete("./api/notes", function(req, res) {
 
 // HTML Routes
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/notes.html"));
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // Listening function
