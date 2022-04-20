@@ -5,7 +5,7 @@ const fs = require("fs");
 const express = require("express");
 //const { parse } = require("path");
 
-const notes = require("./db/bd.json");
+//const notes = require("./db/bd.json");
 
 const readFileData = util.promisify(fs.readFile);
 const writeFileData = util.promisify(fs.writeFile);
