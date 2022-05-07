@@ -32,7 +32,7 @@ app.get("/api/notes", function(req, res) {
 
 // Add new notes to db.json with the "POST" function
 app.post("/api/notes", function(req, res) {
-    const note = req.body;
+    const note = {"title": "test", "text": "test"};
     readFileData("/db/db.json", "utf8").then(function(data) {
         const notes = [].concat(JSON.parse(data));
         note.id = notes.length + 1
