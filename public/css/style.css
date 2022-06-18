@@ -69,32 +69,7 @@ footer {
   font-size: medium;
   background-color: rgb(236, 238, 245);
 }
-.login-form {
-  background-color: rgba(10, 99, 187, 0.572);
-  border-style: outset;
-  color: rgb(236, 238, 245);
-  align-self: center;
-  width: 30%;
-  line-height: 1.5;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-.login-form div {
-  padding: 10px;
-}
 
-.login-form input {
-  border-radius: 5px;
-  width: auto;
-}
-.login-form button {
-  border-radius: 5px;
-  width: 30%;
-  font-size: medium;
-  background-color: rgb(236, 238, 245);
-}
 .signup-form {
   background-color: rgba(10, 99, 187, 0.572);
   border-style: outset;
@@ -137,4 +112,28 @@ footer {
   border-radius: 5px;
   border-color: rgba(240, 248, 255, 0.703);
   border-width: 10px;
+}
+
+.ads {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(10, 99, 187, 0.572);
+  font-size: medium;
+  width: 35%;
+  height: 400px;
+  color: rgb(236, 238, 245);
+  border-radius: 5px;
+  border-color: rgba(240, 248, 255, 0.626);
+  border-width: 10px;
+}
+
+.ads button {
+  justify-content: start;
+  border-radius: 5px;
+  background-color: rgb(236, 238, 245);
+  font-size: medium;
+  width: 30%;
 }
