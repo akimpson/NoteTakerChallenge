@@ -20,3 +20,26 @@ header a {
   text-decoration: none;
   color: rgb(236, 238, 245);
 }
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: end;
+  background-color: rgba(10, 99, 187, 0.572);
+  color: rgb(236, 238, 245);
+  height: 50px;
+  font-size: larger;
+}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 800px;
+  background-color: rgb(241, 241, 228);
+  background-image: url("../images/Handyman1.jpg");
+  background-position: left;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
