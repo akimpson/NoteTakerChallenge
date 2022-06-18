@@ -95,3 +95,46 @@ footer {
   font-size: medium;
   background-color: rgb(236, 238, 245);
 }
+.signup-form {
+  background-color: rgba(10, 99, 187, 0.572);
+  border-style: outset;
+  color: rgb(236, 238, 245);
+  align-self: center;
+  width: 30%;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.signup-form div {
+  padding: 10px;
+}
+.signup-form input {
+  border-radius: 5px;
+  width: auto;
+}
+.signup-form button {
+  border-radius: 5px;
+  width: 30%;
+  font-size: medium;
+  background-color: rgb(236, 238, 245);
+}
+
+.user {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(10, 99, 187, 0.572);
+  border-color: rgb(236, 238, 245);
+  border-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: medium;
+  width: 35%;
+  color: rgb(236, 238, 245);
+  border-radius: 5px;
+  border-color: rgba(240, 248, 255, 0.703);
+  border-width: 10px;
+}
