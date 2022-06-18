@@ -43,3 +43,29 @@ footer {
   background-repeat: no-repeat;
   background-size: auto;
 }
+.login-form {
+  background-color: rgba(10, 99, 187, 0.572);
+  border-style: outset;
+  color: rgb(236, 238, 245);
+  align-self: center;
+  width: 30%;
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.login-form div {
+  padding: 10px;
+}
+
+.login-form input {
+  border-radius: 5px;
+  width: auto;
+}
+.login-form button {
+  border-radius: 5px;
+  width: 30%;
+  font-size: medium;
+  background-color: rgb(236, 238, 245);
+}
