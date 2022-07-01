@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { createNote, noteDeleteNote } = require("../../lib/notes.js");
+const { addNote, noteDeleteNote } = require("../../lib/notes.js");
 const { note } = require("../../db/db.json");
 
 router.get("/notes", (req, res) => {
@@ -19,7 +19,7 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
   // set id based on what the next index of the array will be
   req.body.id = note.length.toString();
-  const notes = createNote(req.body, note);
+  const notes = addNote(req.body, note);
   res.json(notes);
 });
 
